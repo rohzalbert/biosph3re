@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Biosph3re</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+  <script src="https://cdn.tailwindcss.com"></script>
+
+</head>
+
+<body>
+  <div class="container">
+    <header>
+      <div class="address">
+        <p>25 Taiye Olowu Street<br>Lekki Phase 1<br>Lagos, Nigeria</p>
+      </div>
+      <div class="social">
+        <p>Social</p>
+        <p class="social-links">
+          <span>SUBSTACK </span>
+          <span>LI</span>
+        </p>
+      </div>
+      <nav>
+        <ul>
+          <li>Work</li>
+          <li>Capabilities</li>
+          <li>Partners</li>
+          <li>Contact</li>
+          <li>Careers</li>
+        </ul>
+      </nav>
+    </header>
+
+    <div class="hero-section">
+      <div class="logo-section">
+        <img src="/images/BioLogo.svg" alt="The Variable logo" width="750px">
+        <p class="logo-text">The Layout</p>
+      </div>
+
+      <div class="description">
+        <h1>We create <span>different</span></h1>
+        <p>Compared to the competition, <br> differentiated businesses are 4 times<br> more likely to grow.</p>
+      </div>
+    </div>
+
+
+    <section class="intro-section">
+      <!-- Title Section -->
+      <div class="intro-title">
+        <h1>The</h1>
+        <h1 class="highlight">Different</h1>
+        <h1>Agency</h1>
+      </div>
+  
+      <!-- Description Texts -->
+      <div class="intro-texts">
+        <p>Today's consumers are overwhelmed and indifferent. Companies that understand this don't waste their time communicating their sameness. They speak different. Successful companies find or create their differentiated right to</p>
+        <p>win and they amplify it. The data shows that differentiated companies are 4 times more likely to grow. And the new definition of insanity has become doing the same thing that everyone else is doing and expecting to gain share.</p>
+        <p>Being different, contrary to the opinion of some, is the least risky thing a business can do. As Jeff Bezos said in his very last letter to shareholders, “Differentiation is survival.”</p>
+      </div>
+  
+      <!-- Featured Section -->
+      <div class="featured">
+        <div>
+          <span>Featured in:</span>
+          <img src="https://via.placeholder.com/100x50?text=Adweek" alt="Adweek">
+          Winner of the Fastest Growing Agency
+        </div>
+        <div>
+          <span>AdAge</span>
+          4 Times Small Agency of the Year Winner
+        </div>
+        <div>
+          <span>Forbes</span>
+          Winner of America's Best Startups
+        </div>
+        <div>
+          <span>FastCompany</span>
+          3 times winner of the 100 Best Workplaces for Innovators
+        </div>
+      </div>
+    </section>
+
+  </div>
+
+  <!-- GSAP animations -->
+  <script>
+    // Step 1: Animate the logo first
+    gsap.from(".logo-section", {
+      scale: 0,   // Start from 0 (completely invisible)
+      opacity: 0, // Start with 0 opacity
+      duration: 2, // Animation duration
+      ease: "power2.out", // Easing for smooth zoom-in effect
+      transformOrigin: "center center" // Zoom from the center
+    });
+
+    // Step 2: After logo animation, animate the header lines
+    gsap.from("header .address", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: "power2.out",
+      delay: 1 // Starts after the logo animation
+    });
+
+    gsap.from("header .social", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: "power2.out",
+      delay: 1.5 // Starts after the address
+    });
+
+    gsap.from("header nav ul li", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: "power2.out",
+      stagger: 0.2, // Stagger each list item
+      delay: 2 // Starts after the social links
+    });
+
+    // Step 3: Animate the description section after header
+    gsap.from(".description h1", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: "power2.out",
+      delay: 2.5 // Starts after the header items
+    });
+
+    gsap.from(".description p", {
+      opacity: 0,
+      y: 50,
+      duration: 1,
+      ease: "power2.out",
+      delay: 3.5 // Slightly delay the paragraph animation for line-by-line effect
+    });
+
+
+    const logo = document.querySelector('.logo-section img');
+    const cursor = document.createElement('div');
+    cursor.classList.add('custom-cursor');
+    document.body.appendChild(cursor);
+
+    // Mouse movement event for custom cursor
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = `${e.clientX}px`;
+      cursor.style.top = `${e.clientY}px`;
+    });
+
+    // Mouse enter on logo to change cursor scale and background color, removing border
+    logo.addEventListener('mouseenter', () => {
+      cursor.classList.add('no-border'); 
+      gsap.to(cursor, { scale: 1.5, backgroundColor: '#1A4B04', duration: 0.3 });
+    });
+
+    // Mouse leave on logo to reset cursor scale, background color, and restore the border
+    logo.addEventListener('mouseleave', () => {
+      cursor.classList.remove('no-border'); 
+      gsap.to(cursor, { scale: 1, backgroundColor: 'rgba(255, 255, 255, 0.5)', duration: 2.6 });
+    });
+
+    // Logo grow/shrink animation based on mouse hover
+    logo.addEventListener('mouseenter', (e) => {
+      gsap.to(logo, {
+        scale: 1.2,
+        duration: 1.8,
+        ease: "power2.out"
+      });
+    });
+
+    logo.addEventListener('mousemove', (e) => {
+      const rect = logo.getBoundingClientRect();
+      const x = e.clientX - rect.left;
+      const y = e.clientY - rect.top;
+      gsap.to(logo, {
+        scaleX: 1.1 + (x / rect.width) * 0.8,
+        scaleY: 1.1 + (y / rect.height) * 0.8,
+        duration: 1.3
+      });
+    });
+
+    logo.addEventListener('mouseleave', () => {
+      gsap.to(logo, {
+        scale: 1,
+        duration: 1.8,
+        ease: "power2.out"
+      });
+    });
+
+
+      // Handle hover on nav items
+    const navItems = document.querySelectorAll('nav ul li');
+    
+    navItems.forEach((item) => {
+      item.addEventListener('mouseenter', () => {
+        gsap.to(cursor, { scale: 1.5, duration: 0.3 });
+      });
+
+      item.addEventListener('mouseleave', () => {
+        gsap.to(cursor, { scale: 1, duration: 0.3 });
+      });
+    });
+
+    const socialLinks = document.querySelectorAll('.social-links span');
+    socialLinks.forEach((link) => {
+      link.addEventListener('mouseenter', () => {
+        gsap.to(cursor, { scale: 1.5, duration: 0.3 });
+      });
+
+      link.addEventListener('mouseleave', () => {
+        gsap.to(cursor, { scale: 1, duration: 0.3 });
+      });
+    });
+    
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,260 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #F3F2EE;
+  font-family: Arial, sans-serif;
+  color: #292929;
+  cursor: none; /* Hides the default cursor */
+
+}
+
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+  text-align: center;
+  position: relative;
+  z-index: 1000;
+
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  font-size: 12px;
+  color: #292929;
+  margin-left: 250px;
+  margin-right: 20px;
+  margin-top: 20px;
+}
+
+.address, .social, nav ul {
+  display: flex;
+  flex-direction: column;
+  margin-top: 0px;
+}
+
+.social p {
+  text-align: left;
+}
+
+.social-links :hover {
+  color: #1A4B04;
+  text-decoration: underline;
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  text-align: left;
+}
+
+nav ul {
+  list-style: none;
+  text-align: right;
+}
+
+.address, .social {
+  line-height: 1.5;
+}
+
+.social {
+  text-align: center;
+}
+
+nav ul li {
+  margin-bottom: 5px;
+}
+nav ul li:hover {
+  color:#1A4B04;
+  text-decoration: underline;
+}
+
+
+
+
+/* HERO SECTION  */
+
+.hero-section {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 50px;
+  padding-top: 80px;
+  margin: 0 auto; /* Center the hero section */
+
+  max-width: 1600px; /* Set a maximum width */
+  min-height: 150vh; /* Ensure the hero section covers the entire viewport height */
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: -900px; 
+}
+
+
+/* hero SECTION  */
+  /* Custom styles for the hover animation */
+.logo-section img {
+  transition: transform 0.3s ease, filter 0.3s ease;
+  cursor: none;
+  
+}
+
+.logo-section img:hover {
+  filter: drop-shadow(180deg);
+  transform: scale(1.1);
+}
+
+    /* Custom cursor styling */
+.custom-cursor {
+  width: 30px;
+  height: 30px;
+  background-color: rgba(255, 255, 255, 0.5);
+  border: 2px solid #1A4B04;
+  border-radius: 50%;
+  position: absolute;
+  pointer-events: none;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+  transition: transform 0.3s ease;
+}
+
+.no-border {
+  border: none;
+}
+
+
+.logo-text {
+  font-size: 14px;
+  margin-top: -35px;
+  margin-right: 500px;
+  text-align: right;
+}
+
+.description {
+  max-width: 300px;
+  text-align: left;
+  margin-top: -400px; 
+}
+
+.description h1 {
+  font-size: 24px;
+  font-weight: 300;
+}
+
+.description span {
+  font-weight: bold;
+  font-style: italic;
+}
+
+
+
+
+/* INTRO SECTION */
+
+.intro-section {
+  padding: 0 80px;
+  text-align: left;
+}
+
+.intro-title {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.intro-title h1 {
+  font-size: 120px;
+  font-weight: 400;
+  margin: 0;
+}
+
+.intro-title .highlight {
+  font-weight: 900;
+  margin-left: 20px;
+}
+
+.intro-texts {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1000px;
+  margin: 50px auto;
+  font-size: 18px;
+  line-height: 1.6;
+}
+
+.intro-texts p {
+  width: 30%;
+  margin: 0;
+}
+
+.featured {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border-top: 1px solid #666;
+  padding-top: 30px;
+  margin-top: 50px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.featured div {
+  text-align: center;
+  font-size: 14px;
+  color: #ccc;
+}
+
+.featured div span {
+  display: block;
+  font-size: 16px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.featured div img {
+  max-width: 100px;
+  display: block;
+  margin: 10px auto;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .intro-title h1 {
+    font-size: 70px;
+  }
+
+  .intro-texts {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .intro-texts p {
+    width: 100%;
+    margin-bottom: 20px;
+  }
+
+  .featured {
+    flex-direction: column;
+  }
+
+  .featured div {
+    margin-bottom: 20px;
+  }
+}
+
+
+
+
+
